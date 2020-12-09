@@ -10,6 +10,7 @@
         :name="friend.name"
         :phone-number="friend.phone"
         :email-address="friend.email"
+        :is-favourite="friend.isFavourite"
       >
       </friend-contact>
     </ul>
@@ -26,12 +27,14 @@ export default {
           name: 'Gagandeep Singh',
           phone: '9876543210',
           email: 'singh.gagandeep3911@gmail.com',
+          isFavourite: true,
         },
         {
           id: 'troye',
           name: 'Troye Sivan',
           phone: '9988776655',
           email: 'test@mail.com',
+          isFavourite: false,
         },
       ],
     };

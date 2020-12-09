@@ -1,6 +1,7 @@
 <template>
   <li>
-    <h2>{{ name }}</h2>
+    <h2>{{ name }} {{ fav ? '\u272d' : '' }}</h2>
+    <button @click="toggleFavourite">Toggle Favourite</button> |
     <button @click="toggleDetails">
       {{ detailsAreVisible ? 'Hide Details' : 'Show Details' }}
     </button>
@@ -27,9 +28,11 @@ export default {
       },
     },
     emailAddress: String,
+    isFavourite: Boolean,
   },
   data: function() {
     return {
+      fav: this.isFavourite,
       detailsAreVisible: false,
       friend: {
         id: 'gagan',
@@ -42,6 +45,9 @@ export default {
   methods: {
     toggleDetails() {
       this.detailsAreVisible = !this.detailsAreVisible;
+    },
+    toggleFavourite() {
+      this.fav = !this.fav;
     },
   },
 };
