@@ -5,9 +5,11 @@
     </header>
     <ul>
       <friend-contact
-        name="Gagandeep Singh"
-        phone-number="9876543210qw"
-        email-address="test@mail.com"
+        v-for="(friend, index) in friends"
+        :key="index"
+        :name="friend.name"
+        :phone-number="friend.phone"
+        :email-address="friend.email"
       >
       </friend-contact>
     </ul>

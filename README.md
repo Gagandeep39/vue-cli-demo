@@ -11,6 +11,7 @@
   - [Props](#props)
   - [Mutating props](#mutating-props)
   - [Props Validation](#props-validation)
+  - [Dynamic Props](#dynamic-props)
 
 ## Deployment
 
@@ -178,4 +179,19 @@ props: {
     },
     emailAddress: String,
   },
+```
+
+## Dynamic Props
+
+- We can pass values using `v-bind` or `:`
+
+```html
+<friend-contact
+  v-for="(friend, index) in friends"
+  :key="index"
+  :name="friend.name"
+  :phone-number="friend.phone"
+  :email-address="friend.email"
+>
+</friend-contact>
 ```
