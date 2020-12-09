@@ -12,6 +12,7 @@
   - [Mutating props](#mutating-props)
   - [Props Validation](#props-validation)
   - [Dynamic Props](#dynamic-props)
+  - [Event Emitter](#event-emitter)
 
 ## Deployment
 
@@ -194,4 +195,28 @@ props: {
   :email-address="friend.email"
 >
 </friend-contact>
+```
+
+## Event Emitter
+
+- Child to parent communication
+- this.\$emit('event-name', args) is used to emit event
+- Listening to event @event-name
+
+```js
+// Emitting event
+toggleFavourite() {
+  this.$emit('toggle-fav', this.id);
+ },
+```
+
+```html
+<!-- Listening -->
+<friend-contact
+  v-for="(friend, index) in friends"
+  :is-favourite="friend.isFavourite"
+  @toggle-fav="toggleFavourite"
+>
+</friend-contact>
+<!-- toggleFavourite is a method which updaed the value -->
 ```
