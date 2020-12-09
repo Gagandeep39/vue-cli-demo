@@ -9,6 +9,8 @@
   - [Manually Creating Vue Components](#manually-creating-vue-components)
   - [Adding Components](#adding-components)
   - [Props](#props)
+  - [Mutating props](#mutating-props)
+  - [Props Validation](#props-validation)
 
 ## Deployment
 
@@ -135,4 +137,45 @@ export default {
   props: ['name', 'phoneNumber', 'emailAddress'],
 };
 </script>
+```
+
+## Mutating props
+
+- We must never mutate props
+- We must not change th value of a prop variable
+- Vue uses unidirectional data flow
+- Attempt to modify props directly will throw error
+- To perform mutation, assign the prop to a new variable nd manipulate this new variable
+
+## Props Validation
+
+- Ensuring all props are provided
+- Preent missing of props
+- Creating a rule to specify the props and their type are required
+- If validation fails, we will get a warning in console
+
+```js
+// Replace this with
+// props: ['name', 'phoneNumber', 'emailAddress'],
+// This
+// Prop validation
+props: {
+  name: String,
+  phoneNumber: String,
+  emailAddress: String,
+},
+// Other ways of specifying props
+props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    phoneNumber: {
+      type: String,
+      validator: (value) => {
+        return value.length === 10;
+      },
+    },
+    emailAddress: String,
+  },
 ```

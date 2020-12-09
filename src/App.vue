@@ -6,7 +6,7 @@
     <ul>
       <friend-contact
         name="Gagandeep Singh"
-        phone-number="9876543210"
+        phone-number="9876543210qw"
         email-address="test@mail.com"
       >
       </friend-contact>

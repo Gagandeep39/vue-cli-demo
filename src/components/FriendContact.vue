@@ -13,7 +13,21 @@
 
 <script>
 export default {
-  props: ['name', 'phoneNumber', 'emailAddress'],
+  // props: ['name', 'phoneNumber', 'emailAddress'],
+  // Prop validation
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    phoneNumber: {
+      type: String,
+      validator: (value) => {
+        return value.length === 10;
+      },
+    },
+    emailAddress: String,
+  },
   data: function() {
     return {
       detailsAreVisible: false,
