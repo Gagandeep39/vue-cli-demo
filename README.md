@@ -1,12 +1,18 @@
 # Vue CLI
 
 - [Vue CLI](#vue-cli)
+  - [Deployment](#deployment)
   - [Why do we need](#why-do-we-need)
   - [Vue CLI features](#vue-cli-features)
   - [Setup](#setup)
   - [Files](#files)
   - [Manually Creating Vue Components](#manually-creating-vue-components)
   - [Adding Components](#adding-components)
+  - [Props](#props)
+
+## Deployment
+
+- View Deployment at https://gagandeep39.github.io/vue-cli-demo/
 
 ## Why do we need
 
@@ -91,8 +97,42 @@ createApp(App)
 ```
 
 ```vue
-// Using inside vue 
-<template> 
+// Using inside vue
+<template>
   <friend-contact> </friend-contact>
 </template>
+```
+
+## Props
+
+- Used to pass data from parent to child
+- Steps
+  1. Send data as html ttributes eg. name, email-address
+  2. In child, add `props: ['name', 'emailAddress']` inside default export to fetch data
+  3. email-address autmoatically gets converted to camelcase, hene we use the same in Javascript
+
+```html
+<!-- Parent -->
+<friend-contact
+    name="Gagandeep Singh"
+    phone-number="9876543210"
+    email-address="test@mail.com"
+  >
+  </friend-contact>
+</ul>
+```
+
+```vue
+// Child
+<template>
+  <li>
+    <h2>{{ name }}</h2>
+  </li>
+</template>
+
+<script>
+export default {
+  props: ['name', 'phoneNumber', 'emailAddress'],
+};
+</script>
 ```
