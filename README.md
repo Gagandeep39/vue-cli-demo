@@ -13,6 +13,7 @@
   - [Props Validation](#props-validation)
   - [Dynamic Props](#dynamic-props)
   - [Event Emitter](#event-emitter)
+  - [Emit Validation](#emit-validation)
 
 ## Deployment
 
@@ -95,9 +96,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import FriendContact from './components/FriendContact.vue';
 
-createApp(App)
-  .component('friend-contact', FriendContact)
-  .mount('#app');
+createApp(App).component('friend-contact', FriendContact).mount('#app');
 ```
 
 ```vue
@@ -219,4 +218,22 @@ toggleFavourite() {
 >
 </friend-contact>
 <!-- toggleFavourite is a method which updaed the value -->
+```
+
+## Emit Validation
+
+- Specify the events that wil be emmited by component
+- Useful for documentation purpose
+- Makes code readable
+- We can either wete the whole method to be eecuted or simply the name to event
+
+```js
+// emits: [],
+// Ex3cute all event
+emits: {
+  'toggle-fav': function(id) {
+    if (id) return true;
+    else console.warn('ID required');
+  }
+},
 ```
