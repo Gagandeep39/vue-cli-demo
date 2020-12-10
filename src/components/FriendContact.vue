@@ -16,6 +16,15 @@
 export default {
   // props: ['name', 'phoneNumber', 'emailAddress'],
   // Prop validation
+  // Specify all events
+  // emits: [],
+  // Ex3cute all event
+  emits: {
+    'toggle-fav': function(id) {
+      if (id) return true;
+      else console.warn('ID required');
+    }
+  },
   props: {
     id: String,
     name: {
