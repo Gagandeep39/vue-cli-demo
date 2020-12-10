@@ -1,13 +1,14 @@
 <template>
   <li>
     <h2>{{ name }} {{ isFavourite ? '\u272d' : '' }}</h2>
-    <button @click="toggleFavourite">Toggle Favourite </button> |
+    <button @click="toggleFavourite">Toggle Favourite</button> |
     <button @click="toggleDetails">
       {{ detailsAreVisible ? 'Hide Details' : 'Show Details' }}
     </button>
     <ul v-if="detailsAreVisible">
       <li><strong>Phone:</strong> {{ phoneNumber }}</li>
       <li><strong>Email:</strong> {{ emailAddress }}</li>
+      <button @click="$emit('delete-friend', id)">Delete</button>
     </ul>
   </li>
 </template>
@@ -20,10 +21,14 @@ export default {
   // emits: [],
   // Ex3cute all event
   emits: {
-    'toggle-fav': function(id) {
+    'toggle-fav': function (id) {
       if (id) return true;
       else console.warn('ID required');
-    }
+    },
+    'delete-friend': function (id) {
+      if (id) return true;
+      else console.warn('ID required');
+    },
   },
   props: {
     id: String,
@@ -40,7 +45,7 @@ export default {
     emailAddress: String,
     isFavourite: Boolean,
   },
-  data: function() {
+  data: function () {
     return {
       detailsAreVisible: false,
     };
