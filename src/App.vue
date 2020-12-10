@@ -3,8 +3,10 @@
     <header>
       <h1>My Friends</h1>
     </header>
-    <add-friend @add-contact="addContact" />
     <ul>
+      <li>
+        <add-friend @add-contact="addContact" />
+      </li>
       <friend-contact
         v-for="(friend, index) in friends"
         :key="index"
@@ -130,5 +132,18 @@ header {
   background-color: #ec3169;
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+}
+#app input {
+  font: inherit;
+  padding: 0.15rem;
+}
+#app label {
+  font-weight: bold;
+  margin-right: 1rem;
+  width: 7rem;
+  display: inline-block;
+}
+#app form div {
+  margin: 1rem 0;
 }
 </style>
